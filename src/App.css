@@ -1,38 +1,98 @@
-.App {
-  text-align: center;
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+ul {
+    margin: 0;
+    list-style: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* fonts import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+/* fonts import /-end */
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
 }
 
-.App-link {
-  color: #61dafb;
+/* reset, root /-end */
+/* global css */
+.ff-poppins {
+    font-family: 'Poppins', sans-serif;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* letter speacing */
+.ls93 {
+    letter-spacing: 0.593px;
+}
+
+/* letter speacing /-end */
+
+/* font size */
+.fs-12 {
+    font-size: 12px;
+    line-height: 15px;
+}
+
+.fs-14 {
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.fs-15 {
+    font-size: 15px;
+    line-height: 20px;
+}
+
+.fs-18 {
+    font-size: 18px;
+    line-height: 26px;
+}
+
+/* font size /-end */
+
+/* font weight */
+
+/* font weight /-end */
+
+
+/* margin */
+.mb-30 {
+    margin-bottom: 30px;
+}
+
+/* margin /-end */
+
+.bg_color {
+    background-image: url(./assets/images/background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+/* global css /-end */
+
+/* container resize /-start */
+.container {
+    margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    @media (min-width: 1900px) {
+        max-width: 1400px;
+    }
 }
