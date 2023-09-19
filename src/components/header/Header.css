@@ -1,7 +1,6 @@
 #top_header {
     padding: 10px 0;
     background-color: white;
-    margin-bottom: 37px;
 }
 
 .gradient-icon {
@@ -16,4 +15,8 @@
 
 .nav-items {
     margin-right: 30px;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
 }

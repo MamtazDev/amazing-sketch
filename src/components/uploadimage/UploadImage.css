@@ -1,3 +1,8 @@
+#upload_image {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
 #upload_image .upload_image_container {
     background-color: white;
     padding: 30px;
@@ -8,6 +13,7 @@
     max-width: 726px;
     width: 100%;
     background: linear-gradient(108deg, rgba(38, 206, 206, 0.10) 0%, rgba(173, 130, 247, 0.10) 100%);
+    border: 2px dashed #26CECE;
     border-radius: 20px;
 }
 

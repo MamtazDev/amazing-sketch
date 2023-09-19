@@ -29,6 +29,11 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+:root {
+    --black_31: #313131;
+    --black_6C: #6C6C6C;
+}
+
 /* reset, root /-end */
 /* global css */
 .ff-poppins {
@@ -63,11 +68,20 @@ body {
     line-height: 26px;
 }
 
+.fs-25 {
+    font-size: 25px;
+    line-height: 35px;
+}
+
 /* font size /-end */
 
-/* font weight */
+.text-black31 {
+    color: var(--black_31);
+}
 
-/* font weight /-end */
+.text-black6c {
+    color: var(--black_6C);
+}
 
 
 /* margin */
@@ -79,9 +93,9 @@ body {
 
 .bg_color {
     background-image: url(./assets/images/background.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
+    background-repeat: repeat-y;
+    /* background-size: cover; */
+    /* height: 100vh; */
 }
 
 /* global css /-end */
