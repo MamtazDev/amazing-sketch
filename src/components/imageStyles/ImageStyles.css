@@ -7,6 +7,10 @@
     margin-bottom: 30px;
 }
 
+.slider-item:focus-visible {
+    outline: 0;
+}
+
 .slider-item img {
     margin-bottom: 10px;
 }

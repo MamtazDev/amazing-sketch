@@ -1,23 +1,37 @@
-import React from 'react'
-import './ImageStyles.css'
+import React, { useState } from 'react';
+import './ImageStyles.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import sliderImg1 from '../../assets/images/slider1.svg'
-import sliderImg2 from '../../assets/images/slider2.svg'
-import sliderImg3 from '../../assets/images/slider3.svg'
-import sliderImg4 from '../../assets/images/slider4.svg'
-import sliderImg5 from '../../assets/images/slider5.svg'
-import sliderImg6 from '../../assets/images/slider6.svg'
-import sliderImg7 from '../../assets/images/slider7.svg'
-import sliderImg8 from '../../assets/images/slider8.svg'
-import sliderImg9 from '../../assets/images/slider9.svg'
-import sliderImg10 from '../../assets/images/slider10.svg'
-import sliderImg11 from '../../assets/images/slider11.svg'
-import sliderImg12 from '../../assets/images/slider12.svg'
+import sliderImg1 from '../../assets/images/slider1.svg';
+import sliderImg2 from '../../assets/images/slider2.svg';
+import sliderImg3 from '../../assets/images/slider3.svg';
+import sliderImg4 from '../../assets/images/slider4.svg';
+import sliderImg5 from '../../assets/images/slider5.svg';
+import sliderImg6 from '../../assets/images/slider6.svg';
+import sliderImg7 from '../../assets/images/slider7.svg';
+import sliderImg8 from '../../assets/images/slider8.svg';
+import sliderImg9 from '../../assets/images/slider9.svg';
+import sliderImg10 from '../../assets/images/slider10.svg';
+import sliderImg11 from '../../assets/images/slider11.svg';
+import sliderImg12 from '../../assets/images/slider12.svg';
+import selectStyleImg1 from '../../assets/images/selectstyle1.svg';
+import selectStyleImg2 from '../../assets/images/selectstyle2.svg';
+import selectStyleImg3 from '../../assets/images/selectstyle3.svg';
+import selectStyleImg4 from '../../assets/images/selectstyle4.svg';
+import selectStyleImg5 from '../../assets/images/selectstyle5.svg';
+import selectStyleImg6 from '../../assets/images/selectstyle6.svg';
+import selectStyleImg7 from '../../assets/images/selectstyle7.svg';
+import selectStyleImg8 from '../../assets/images/selectstyle8.svg';
+import selectStyleImg9 from '../../assets/images/selectstyle9.svg';
+import selectStyleImg10 from '../../assets/images/selectstyle10.svg';
+import selectStyleImg11 from '../../assets/images/selectstyle11.svg';
 import { GrFormPrevious, GrFormNext } from "react-icons/gr";
 
-const ImageStyles = () => {
+import Loader from '../../assets/images/loader.gif'
+
+const ImageStyles = ({ files }) => {
+
     function NextArrow(props) {
         const { onClick } = props;
         return (
@@ -150,33 +164,137 @@ const ImageStyles = () => {
             slidername2: 'fountain'
         }
     ]
+
+    const SliderInfo1 = [
+        {
+            sliderImg: selectStyleImg1,
+            sliderName: 'abstract',
+            slidername2: 'lines',
+        },
+
+        {
+            sliderImg: selectStyleImg2,
+            sliderName: 'baroque',
+            slidername2: 'river',
+        },
+
+        {
+            sliderImg: selectStyleImg3,
+            sliderName: 'expressionist',
+            slidername2: 'tree',
+
+        },
+        {
+            sliderImg: selectStyleImg4,
+            sliderName: 'impressionist',
+            slidername2: 'park',
+        },
+
+        {
+            sliderImg: selectStyleImg5,
+            sliderName: 'expressionist',
+            slidername2: 'tree',
+        },
+        {
+            sliderImg: selectStyleImg6,
+            sliderName: 'expressionist',
+            slidername2: 'windmill',
+        },
+        {
+            sliderImg: selectStyleImg7,
+            sliderName: 'impressionist',
+            slidername2: 'lighthouse',
+        },
+        {
+            sliderImg: selectStyleImg8,
+            sliderName: 'neoclassic',
+            slidername2: 'waterfalls',
+        },
+        {
+            sliderImg: selectStyleImg9,
+            sliderName: 'realist',
+            slidername2: 'pears',
+        },
+        {
+            sliderImg: selectStyleImg10,
+            sliderName: 'impressionist',
+            slidername2: 'palms',
+        },
+        {
+            sliderImg: selectStyleImg11,
+            sliderName: 'realist',
+            slidername2: 'sailboat',
+        },
+        {
+            sliderImg: selectStyleImg1,
+            sliderName: 'abstract',
+            slidername2: 'lines',
+        },
+        {
+            sliderImg: selectStyleImg9,
+            sliderName: 'realist',
+            slidername2: 'pears',
+        },
+
+    ]
+
+    const clickhandler = () => {
+        files.length > 0
+            ? (
+                setIsLoading(true),
+                setImageSlider(SliderInfo1),
+                setChangeTitle('Select Styles'),
+                setTimeout(() => {
+                    setIsLoading(false);
+                }, 2000)
+            )
+            : alert('Please upload an image');
+    }
+
+    const [changeTitle, setChangeTitle] = useState(null)
+    const [imageSlider, setImageSlider] = useState(SliderInfo)
+    const [isLoading, setIsLoading] = useState(false)
+
     return (
         <>
             <div className='section_heading border-top py-4'>
                 <h2 className='text-black fw-medium fs-18 text-center'>
-                    Image Styles
+                    {changeTitle ? changeTitle : 'Image Styles'}
                 </h2>
             </div>
 
             <div className='imageStyles_slider pb-5'>
                 <div>
-                    <Slider {...settings}>
-                        {/* <button type="button" data-role="none" class="slick-arrow slick-prev" style="display: block;"> Previous</button> */}
-                        {
-                            SliderInfo.map((sliderItem, index) => (
-                                <div className='slider-item' key={index}>
-                                    <img src={sliderItem.sliderImg} alt="slider-img" />
-                                    <h5 className='fs-15 fw-medium text-capitalize text-black'>
-                                        {sliderItem.sliderName}
-                                    </h5>
-                                    <h5 className='fs-15 fw-medium text-capitalize text-black'>
-                                        {sliderItem.slidername2}
-                                    </h5>
-                                </div>
-                            ))
-                        }
-                        {/* <button type="button" data-role="none" class="slick-arrow slick-next" style="display: block;"> Next</button> */}
-                    </Slider>
+
+                    {isLoading ? (
+                        <div className="loader text-center">
+                            <img src={Loader} style={{ width: '374px' }} alt="loader" />
+                            <h2 className='fs-25 fw-bold text-black mb-4'>
+                                Your Images are being generated!
+                            </h2>
+                            <p className='fs-18 fw-medium text-black6c'>
+                                Pls wait for a moment
+                            </p>
+                        </div>
+                    ) : (
+                        <Slider {...settings}>
+                            {
+                                imageSlider.map((sliderItem, index) => (
+                                    <div className='slider-item bg-transparent border-0' key={index} onClick={() =>
+                                        clickhandler()}>
+
+                                        <img src={sliderItem.sliderImg} alt="slider-img" />
+                                        <h5 className='fs-15 fw-medium text-capitalize text-black'>
+                                            {sliderItem.sliderName}
+                                        </h5>
+                                        <h5 className='fs-15 fw-medium text-capitalize text-black'>
+                                            {sliderItem.slidername2}
+                                        </h5>
+                                    </div>
+                                ))
+                            }
+                        </Slider>
+                    )}
                 </div>
             </div>
         </>

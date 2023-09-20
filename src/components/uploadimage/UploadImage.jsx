@@ -5,11 +5,9 @@ import dragIcon from '../../assets/images/drag.svg';
 import { useDropzone } from 'react-dropzone';
 import { AiOutlineClose } from "react-icons/ai";
 import ImageStyles from '../imageStyles/ImageStyles';
-import SelectStyle from '../selectStyle/SelectStyle';
-import Loader from '../../assets/images/loader.gif'
 
 const imgThumbnail = {
-    width: 195,
+    maxWidth: 195,
     height: 195,
 }
 
@@ -22,12 +20,11 @@ export const UploadImage = () => {
     const [files, setFiles] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const { getRootProps, getInputProps, acceptedFiles } = useDropzone({
-        accept: {
+        accept: { 
             'image/*': [],
         },
         onDrop: async (acceptedFiles) => {
             setIsLoading(true);
-            // Simulate a delay of 2 seconds
             setTimeout(() => {
                 setFiles(
                     acceptedFiles.map((file) =>
@@ -37,15 +34,15 @@ export const UploadImage = () => {
                     )
                 );
                 setIsLoading(false);
-            }, 2000);
+            });
         },
     });
 
     const thumbs = files.map((file, index) => (
-        <div key={file.name}>
+        <div className='ms-4' key={file.name}>
             <div className='d-flex'>
                 <div style={imgThumbnail} className='position-relative overflow-hidden'>
-                    <img src={file.preview} onLoad={() => URL.revokeObjectURL(file.preview)} />
+                    <img src={file.preview} className='img-fluid' onLoad={() => URL.revokeObjectURL(file.preview)} />
                     <button onClick={() => removeFile(index)} className="close-button position-absolute border-0 bg-black text-white py-1 px-2 rounded-3" style={colseBtn}>
                         <AiOutlineClose />
                     </button>
@@ -88,7 +85,7 @@ export const UploadImage = () => {
                             <h2 className='text-black fs-18 text-center'>Upload Image</h2>
                         </div>
 
-                        <div className='drag_and_drop d-flex flex-wrap justify-content-center gap-5 pb-lg-5'>
+                        <div className='drag_and_drop d-flex flex-wrap justify-content-center pb-lg-5 border-bottom'>
                             <div className='drop_image p-4'>
                                 <div className='text-center' {...getRootProps()}>
                                     <img src={dragIcon} className='mb-3' alt='icon' />
@@ -108,24 +105,14 @@ export const UploadImage = () => {
                                     </label>
                                 </div>
                             </div>
+
                             <aside>
                                 {thumbs}
                             </aside>
                         </div>
 
-                        {isLoading ? (
-                            <div className="loader text-center">
-                                <img src={Loader} style={{ width: '374px' }} alt="loader" />
-                                <h2 className='fs-25 fw-bold text-black mb-4'>
-                                    Your Images are being generated!
-                                </h2>
-                                <p className='fs-18 fw-medium text-black6c'>
-                                    Pls wait for a moment
-                                </p>
-                            </div>
-                        ) : (
-                            files.length > 0 ? <SelectStyle /> : <ImageStyles />
-                        )}
+                        <ImageStyles files={files} />
+
                     </div>
                 </Row>
             </Container>

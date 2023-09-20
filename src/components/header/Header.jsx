@@ -7,11 +7,12 @@ import shopping from '../../assets/images/shopping.svg'
 import favoutie from '../../assets/images/favoutie.svg'
 import avatar from '../../assets/images/avatar.svg'
 import { Button, Container, Nav, Navbar } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 const navItems = [
     {
         name: 'home',
-        link: '/home'
+        link: '/'
     },
     {
         name: 'about',
@@ -54,18 +55,17 @@ export const Header = () => {
         <section id='top_header'>
             <Navbar expand="lg">
                 <Container>
-                    <Navbar.Brand href="/">
+                    <Link to={'/'} className='navbar-brand'>
                         <img src={navLogo} className='img-fluid' alt='nav-logo' />
-                    </Navbar.Brand>
+                    </Link>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" className='border-0' />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto align-lg-items-center ms-4">
                             {navItems.map((item, index) => (
                                 <li key={index} className='nav-items'>
-                                    <Nav.Link to={item.link} className='fw-semibold ff-poppins text-capitalize'>
+                                    <Link to={item.link} className='fw-semibold ff-poppins nav-link text-capitalize'>
                                         {item.name}
-                                    </Nav.Link>
-
+                                    </Link>
                                 </li>
                             ))}
                             <Button className='gradient-icon d-flex align-items-center gap-3 fw-semibold fs-14 ff-poppins border-0 text-white ls93'>
