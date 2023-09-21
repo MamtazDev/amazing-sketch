@@ -29,8 +29,11 @@ import selectStyleImg11 from '../../assets/images/selectstyle11.svg';
 import { GrFormPrevious, GrFormNext } from "react-icons/gr";
 
 import Loader from '../../assets/images/loader.gif'
+import { Link } from 'react-router-dom';
 
 const ImageStyles = ({ files }) => {
+
+    const [changeScreen, setChangeScreen] = useState(false)
 
     function NextArrow(props) {
         const { onClick } = props;
@@ -241,6 +244,7 @@ const ImageStyles = ({ files }) => {
     const clickhandler = () => {
         files.length > 0
             ? (
+                setChangeScreen(true),
                 setIsLoading(true),
                 setImageSlider(SliderInfo1),
                 setChangeTitle('Select Styles'),
@@ -278,20 +282,38 @@ const ImageStyles = ({ files }) => {
                         </div>
                     ) : (
                         <Slider {...settings}>
-                            {
-                                imageSlider.map((sliderItem, index) => (
-                                    <div className='slider-item bg-transparent border-0' key={index} onClick={() =>
-                                        clickhandler()}>
 
-                                        <img src={sliderItem.sliderImg} alt="slider-img" />
-                                        <h5 className='fs-15 fw-medium text-capitalize text-black'>
-                                            {sliderItem.sliderName}
-                                        </h5>
-                                        <h5 className='fs-15 fw-medium text-capitalize text-black'>
-                                            {sliderItem.slidername2}
-                                        </h5>
-                                    </div>
-                                ))
+                            {
+                                changeScreen ? (
+                                    imageSlider.map((sliderItem, index) => (
+                                        <Link to={'image-edit'} className='slider-item bg-transparent border-0 text-decoration-none' key={index} onClick={() =>
+                                            clickhandler()}>
+
+                                            <img src={sliderItem.sliderImg} alt="slider-img" />
+                                            <h5 className='fs-15 fw-medium text-capitalize text-black'>
+                                                {sliderItem.sliderName}
+                                            </h5>
+                                            <h5 className='fs-15 fw-medium text-capitalize text-black'>
+                                                {sliderItem.slidername2}
+                                            </h5>
+                                        </Link>
+                                    ))
+                                ) : (
+                                    imageSlider.map((sliderItem, index) => (
+                                        <div className='slider-item bg-transparent border-0' key={index} onClick={() =>
+                                            clickhandler()}>
+
+                                            <img src={sliderItem.sliderImg} alt="slider-img" />
+                                            <h5 className='fs-15 fw-medium text-capitalize text-black'>
+                                                {sliderItem.sliderName}
+                                            </h5>
+                                            <h5 className='fs-15 fw-medium text-capitalize text-black'>
+                                                {sliderItem.slidername2}
+                                            </h5>
+                                        </div>
+                                    ))
+                                )
+
                             }
                         </Slider>
                     )}

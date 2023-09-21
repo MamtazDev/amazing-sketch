@@ -20,7 +20,7 @@ const navItems = [
     },
     {
         name: 'contact us',
-        link: '/contactus'
+        link: '/contact-us'
     },
 ]
 

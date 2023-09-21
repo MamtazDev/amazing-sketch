@@ -7,6 +7,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Home from './components/home/Home.jsx';
 import About from './components/about/About.jsx';
 import ImageEdit from './components/imageEdit/ImageEdit.jsx';
+import ContactUs from './components/contactUs/ContactUs.jsx';
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
   {
     path: '/image-edit',
     element: <ImageEdit />
+  },
+  {
+    path: '/contact-us',
+    element: <ContactUs />
   },
 ])
 

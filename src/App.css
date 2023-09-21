@@ -32,6 +32,8 @@ body {
 :root {
     --black_31: #313131;
     --black_6C: #6C6C6C;
+    --white_e4: #E4E4E4;
+    --gray_7b: #7B7B7B
 }
 
 /* reset, root /-end */
@@ -82,6 +84,21 @@ body {
 .text-black6c {
     color: var(--black_6C);
 }
+
+.text-whitee4 {
+    color: var(--white_e4);
+}
+
+.text-gray7b {
+    color: var(--gray_7b)
+}
+
+/* background color */
+.bg-whitee4 {
+    background-color: var(--white_e4);
+}
+
+/* background color /-end */
 
 
 /* margin */
