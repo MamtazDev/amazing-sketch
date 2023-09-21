@@ -20,7 +20,7 @@ export const UploadImage = () => {
     const [files, setFiles] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const { getRootProps, getInputProps, acceptedFiles } = useDropzone({
-        accept: { 
+        accept: {
             'image/*': [],
         },
         onDrop: async (acceptedFiles) => {
@@ -85,7 +85,7 @@ export const UploadImage = () => {
                             <h2 className='text-black fs-18 text-center'>Upload Image</h2>
                         </div>
 
-                        <div className='drag_and_drop d-flex flex-wrap justify-content-center pb-lg-5 border-bottom'>
+                        <div className='drag_and_drop d-flex flex-wrap justify-content-center pb-5 border-bottom'>
                             <div className='drop_image p-4'>
                                 <div className='text-center' {...getRootProps()}>
                                     <img src={dragIcon} className='mb-3' alt='icon' />
