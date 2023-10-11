@@ -74,7 +74,7 @@ export const Header = () => {
                             </Button>
                         </Nav>
                         <Nav>
-                            <ul className='d-flex align-items-center'>
+                            <ul className='d-flex align-items-center list-unstyled'>
                                 {
                                     userNav.map((navItem, index) => (
                                         <li key={index} className='nav-items'>
