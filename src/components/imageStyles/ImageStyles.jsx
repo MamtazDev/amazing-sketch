@@ -26,32 +26,174 @@ import selectStyleImg8 from '../../assets/images/selectstyle8.svg';
 import selectStyleImg9 from '../../assets/images/selectstyle9.svg';
 import selectStyleImg10 from '../../assets/images/selectstyle10.svg';
 import selectStyleImg11 from '../../assets/images/selectstyle11.svg';
-import { GrFormPrevious, GrFormNext } from "react-icons/gr";
-
 import Loader from '../../assets/images/loader.gif'
 import { Link } from 'react-router-dom';
+import NextArrow from '../nextArrow/NextArrow';
+import PrevArrow from '../prevArrow/PrevArrow';
+import { useNavigate } from "react-router-dom";
+
+const SliderInfo = [
+    {
+        sliderImg: sliderImg1,
+        sliderName: 'Gothic',
+        slidername2: 'Architecture'
+    },
+    {
+        sliderImg: sliderImg2,
+        sliderName: 'Pop',
+        slidername2: 'Cubism'
+    },
+    {
+        sliderImg: sliderImg3,
+        sliderName: 'Impressionist',
+        slidername2: 'Beach'
+    },
+    {
+        sliderImg: sliderImg4,
+        sliderName: 'neoclassic',
+        slidername2: 'fountain'
+    },
+    {
+        sliderImg: sliderImg5,
+        sliderName: 'post-impressionist',
+        slidername2: 'haystacks'
+    },
+    {
+        sliderImg: sliderImg6,
+        sliderName: 'realist',
+        slidername2: 'pears'
+    },
+    {
+        sliderImg: sliderImg7,
+        sliderName: 'renaissance',
+        slidername2: 'monks'
+    },
+    {
+        sliderImg: sliderImg8,
+        sliderName: 'surrealist',
+        slidername2: 'astrology'
+    },
+    {
+        sliderImg: sliderImg9,
+        sliderName: 'surrealist',
+        slidername2: 'forest'
+    },
+    {
+        sliderImg: sliderImg10,
+        sliderName: 'abstract',
+        slidername2: 'expressionist'
+    },
+    {
+        sliderImg: sliderImg11,
+        sliderName: 'baroque',
+        slidername2: 'marketplace'
+    },
+    {
+        sliderImg: sliderImg12,
+        sliderName: 'romantic',
+        slidername2: 'pasture'
+    },
+    {
+        sliderImg: sliderImg1,
+        sliderName: 'Gothic',
+        slidername2: 'Architecture'
+    },
+    {
+        sliderImg: sliderImg2,
+        sliderName: 'Pop',
+        slidername2: 'Cubism'
+    },
+    {
+        sliderImg: sliderImg3,
+        sliderName: 'Impressionist',
+        slidername2: 'Beach'
+    },
+    {
+        sliderImg: sliderImg4,
+        sliderName: 'neoclassic',
+        slidername2: 'fountain'
+    }
+]
+
+const SliderInfo1 = [
+    {
+        sliderImg: selectStyleImg1,
+        sliderName: 'abstract',
+        slidername2: 'lines',
+    },
+
+    {
+        sliderImg: selectStyleImg2,
+        sliderName: 'baroque',
+        slidername2: 'river',
+    },
+
+    {
+        sliderImg: selectStyleImg3,
+        sliderName: 'expressionist',
+        slidername2: 'tree',
+
+    },
+    {
+        sliderImg: selectStyleImg4,
+        sliderName: 'impressionist',
+        slidername2: 'park',
+    },
+
+    {
+        sliderImg: selectStyleImg5,
+        sliderName: 'expressionist',
+        slidername2: 'tree',
+    },
+    {
+        sliderImg: selectStyleImg6,
+        sliderName: 'expressionist',
+        slidername2: 'windmill',
+    },
+    {
+        sliderImg: selectStyleImg7,
+        sliderName: 'impressionist',
+        slidername2: 'lighthouse',
+    },
+    {
+        sliderImg: selectStyleImg8,
+        sliderName: 'neoclassic',
+        slidername2: 'waterfalls',
+    },
+    {
+        sliderImg: selectStyleImg9,
+        sliderName: 'realist',
+        slidername2: 'pears',
+    },
+    {
+        sliderImg: selectStyleImg10,
+        sliderName: 'impressionist',
+        slidername2: 'palms',
+    },
+    {
+        sliderImg: selectStyleImg11,
+        sliderName: 'realist',
+        slidername2: 'sailboat',
+    },
+    {
+        sliderImg: selectStyleImg1,
+        sliderName: 'abstract',
+        slidername2: 'lines',
+    },
+    {
+        sliderImg: selectStyleImg9,
+        sliderName: 'realist',
+        slidername2: 'pears',
+    },
+
+]
 
 const ImageStyles = ({ files }) => {
-
     const [changeScreen, setChangeScreen] = useState(false)
-
-    function NextArrow(props) {
-        const { onClick } = props;
-        return (
-            <button className='nextBtn' onClick={onClick}>
-                <GrFormNext />
-            </button>
-        );
-    }
-
-    function PrevArrow(props) {
-        const { onClick } = props;
-        return (
-            <button className='prevBtn' onClick={onClick}>
-                <GrFormPrevious />
-            </button>
-        );
-    }
+    const [changeTitle, setChangeTitle] = useState(null)
+    const [imageSlider, setImageSlider] = useState(SliderInfo)
+    const [isLoading, setIsLoading] = useState(false)
+    const navigate = useNavigate();
 
     const settings = {
         // className: "center",
@@ -85,163 +227,9 @@ const ImageStyles = ({ files }) => {
         ],
     };
 
-    const SliderInfo = [
-        {
-            sliderImg: sliderImg1,
-            sliderName: 'Gothic',
-            slidername2: 'Architecture'
-        },
-        {
-            sliderImg: sliderImg2,
-            sliderName: 'Pop',
-            slidername2: 'Cubism'
-        },
-        {
-            sliderImg: sliderImg3,
-            sliderName: 'Impressionist',
-            slidername2: 'Beach'
-        },
-        {
-            sliderImg: sliderImg4,
-            sliderName: 'neoclassic',
-            slidername2: 'fountain'
-        },
-        {
-            sliderImg: sliderImg5,
-            sliderName: 'post-impressionist',
-            slidername2: 'haystacks'
-        },
-        {
-            sliderImg: sliderImg6,
-            sliderName: 'realist',
-            slidername2: 'pears'
-        },
-        {
-            sliderImg: sliderImg7,
-            sliderName: 'renaissance',
-            slidername2: 'monks'
-        },
-        {
-            sliderImg: sliderImg8,
-            sliderName: 'surrealist',
-            slidername2: 'astrology'
-        },
-        {
-            sliderImg: sliderImg9,
-            sliderName: 'surrealist',
-            slidername2: 'forest'
-        },
-        {
-            sliderImg: sliderImg10,
-            sliderName: 'abstract',
-            slidername2: 'expressionist'
-        },
-        {
-            sliderImg: sliderImg11,
-            sliderName: 'baroque',
-            slidername2: 'marketplace'
-        },
-        {
-            sliderImg: sliderImg12,
-            sliderName: 'romantic',
-            slidername2: 'pasture'
-        },
-        {
-            sliderImg: sliderImg1,
-            sliderName: 'Gothic',
-            slidername2: 'Architecture'
-        },
-        {
-            sliderImg: sliderImg2,
-            sliderName: 'Pop',
-            slidername2: 'Cubism'
-        },
-        {
-            sliderImg: sliderImg3,
-            sliderName: 'Impressionist',
-            slidername2: 'Beach'
-        },
-        {
-            sliderImg: sliderImg4,
-            sliderName: 'neoclassic',
-            slidername2: 'fountain'
-        }
-    ]
-
-    const SliderInfo1 = [
-        {
-            sliderImg: selectStyleImg1,
-            sliderName: 'abstract',
-            slidername2: 'lines',
-        },
-
-        {
-            sliderImg: selectStyleImg2,
-            sliderName: 'baroque',
-            slidername2: 'river',
-        },
-
-        {
-            sliderImg: selectStyleImg3,
-            sliderName: 'expressionist',
-            slidername2: 'tree',
-
-        },
-        {
-            sliderImg: selectStyleImg4,
-            sliderName: 'impressionist',
-            slidername2: 'park',
-        },
-
-        {
-            sliderImg: selectStyleImg5,
-            sliderName: 'expressionist',
-            slidername2: 'tree',
-        },
-        {
-            sliderImg: selectStyleImg6,
-            sliderName: 'expressionist',
-            slidername2: 'windmill',
-        },
-        {
-            sliderImg: selectStyleImg7,
-            sliderName: 'impressionist',
-            slidername2: 'lighthouse',
-        },
-        {
-            sliderImg: selectStyleImg8,
-            sliderName: 'neoclassic',
-            slidername2: 'waterfalls',
-        },
-        {
-            sliderImg: selectStyleImg9,
-            sliderName: 'realist',
-            slidername2: 'pears',
-        },
-        {
-            sliderImg: selectStyleImg10,
-            sliderName: 'impressionist',
-            slidername2: 'palms',
-        },
-        {
-            sliderImg: selectStyleImg11,
-            sliderName: 'realist',
-            slidername2: 'sailboat',
-        },
-        {
-            sliderImg: selectStyleImg1,
-            sliderName: 'abstract',
-            slidername2: 'lines',
-        },
-        {
-            sliderImg: selectStyleImg9,
-            sliderName: 'realist',
-            slidername2: 'pears',
-        },
-
-    ]
-
     const clickhandler = () => {
+
+
         files.length > 0
             ? (
                 setChangeScreen(true),
@@ -250,14 +238,15 @@ const ImageStyles = ({ files }) => {
                 setChangeTitle('Select Styles'),
                 setTimeout(() => {
                     setIsLoading(false);
+                    navigate("/image-edit");
+
                 }, 2000)
             )
             : alert('Please upload an image');
+
     }
 
-    const [changeTitle, setChangeTitle] = useState(null)
-    const [imageSlider, setImageSlider] = useState(SliderInfo)
-    const [isLoading, setIsLoading] = useState(false)
+
 
     return (
         <>
@@ -282,38 +271,24 @@ const ImageStyles = ({ files }) => {
                         </div>
                     ) : (
                         <Slider {...settings}>
-
                             {
-                                changeScreen ? (
-                                    imageSlider.map((sliderItem, index) => (
-                                        <Link to={'image-edit'} className='slider-item bg-transparent border-0 text-decoration-none' key={index} onClick={() =>
-                                            clickhandler()}>
+                                imageSlider.map((sliderItem, index) => (
+                                    <div className='slider-item bg-transparent border-0 text-decoration-none' key={index} >
 
-                                            <img src={sliderItem.sliderImg} alt="slider-img" />
-                                            <h5 className='fs-15 fw-medium text-capitalize text-black'>
-                                                {sliderItem.sliderName}
-                                            </h5>
-                                            <h5 className='fs-15 fw-medium text-capitalize text-black'>
-                                                {sliderItem.slidername2}
-                                            </h5>
-                                        </Link>
-                                    ))
-                                ) : (
-                                    imageSlider.map((sliderItem, index) => (
-                                        <div className='slider-item bg-transparent border-0' key={index} onClick={() =>
-                                            clickhandler()}>
+                                        <img className=' pointer' src={sliderItem.sliderImg}
+                                            onClick={() => clickhandler()}
+                                            alt="slider-img" />
 
-                                            <img src={sliderItem.sliderImg} alt="slider-img" />
-                                            <h5 className='fs-15 fw-medium text-capitalize text-black'>
-                                                {sliderItem.sliderName}
-                                            </h5>
-                                            <h5 className='fs-15 fw-medium text-capitalize text-black'>
-                                                {sliderItem.slidername2}
-                                            </h5>
-                                        </div>
-                                    ))
+                                        <h5 className='fs-15 fw-medium text-capitalize text-black'>
+                                            {sliderItem.sliderName}
+                                        </h5>
+
+                                        <h5 className='fs-15 fw-medium text-capitalize text-black'>
+                                            {sliderItem.slidername2}
+                                        </h5>
+                                    </div>
                                 )
-
+                                )
                             }
                         </Slider>
                     )}

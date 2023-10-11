@@ -61,6 +61,9 @@
     background: linear-gradient(108deg, #26CECE 0%, #AD82F7 100%), #E5E5E5;
 }
 
+.slick-slider .nextBtn:hover svg{
+    fill: white;
+}
 
 .slick-dots .slick-active {
     width: 50px !important;
